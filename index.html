@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayub Kolade Adediji — Engineer & Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script> -->
+<style>
+:root {
+  --bg: #080c0e;
+  --bg2: #0d1214;
+  --bg3: #121819;
+  --card: #0f1518;
+  --accent: #c9984f;
+  --accent2: #e2b96f;
+  --gold: #c9984f;
+  --text: #e8f0ed;
+  --muted: #7a8a80;
+  --border: rgba(201,152,79,0.12);
+  --border2: rgba(201,152,79,0.28);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden;}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px;}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(8, 12, 14, 0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 0.5px solid var(--border);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+}
+
+/* Desktop Links */
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* CTA */
+.nav-cta {
+  background: transparent;
+  border: 0.5px solid var(--accent);
+  color: var(--accent);
+  padding: 0.45rem 1.2rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.nav-cta:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--accent);
+  cursor: pointer;
+  padding: 0.3rem;
+}
+
+/* Mobile Dropdown */
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(8, 12, 14, 0.98);
+  backdrop-filter: blur(16px);
+  border-top: 0.5px solid var(--border);
+  padding: 1.5rem 5%;
+}
+
+.mobile-menu-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.mobile-menu-content a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 1.05rem;
+  padding: 0.4rem 0;
+  transition: all 0.3s;
+}
+
+.mobile-menu-content a:hover {
+  color: var(--accent);
+  padding-left: 8px;
+}
+
+.mobile-cta {
+  background: transparent;
+  border: 0.5px solid var(--accent);
+  color: var(--accent);
+  padding: 0.8rem 1.5rem;
+  border-radius: 2rem;
+  text-align: center;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 992px) {
+  .nav-links,
+  .nav-cta {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .mobile-menu.active {
+    display: block;
+  }
+}
+
+/* Optional: Make it even tighter on very small screens */
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 1rem 5%;
+  }
+}
+
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:7rem 5rem 4rem;gap:4rem;position:relative;overflow:hidden;}
+.hero-lines{position:absolute;inset:0;pointer-events:none;}
+.hero-lines::before{content:'';position:absolute;top:0;right:40%;bottom:0;width:0.5px;background:linear-gradient(to bottom,transparent,var(--border),transparent);}
+.hero-lines::after{content:'';position:absolute;left:0;right:0;top:45%;height:0.5px;background:linear-gradient(to right,transparent,var(--border),transparent);}
+.hero-dot{position:absolute;top:45%;right:40%;width:6px;height:6px;border-radius:50%;background:var(--accent);transform:translate(50%,-50%);box-shadow:0 0 20px var(--accent);animation:pulseDot 2.5s ease-in-out infinite;}
+@keyframes pulseDot{0%,100%{box-shadow:0 0 10px var(--accent),0 0 20px rgba(201,152,79,0.3);}50%{box-shadow:0 0 20px var(--accent),0 0 40px rgba(201,152,79,0.5);}}
+
+.hero-left{position:relative;z-index:1;}
+.hero-tag{display:inline-flex;align-items:center;gap:0.6rem;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:2rem;opacity:0;animation:fadeUp 0.7s ease 0.2s forwards;}
+.hero-tag::before{content:'';width:24px;height:0.5px;background:var(--accent);}
+
+/* BIG HORIZONTAL NAME */
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,7vw,7.5rem);font-weight:700;line-height:1.0;letter-spacing:-0.03em;margin-bottom:1.8rem;opacity:0;animation:fadeUp 0.7s ease 0.4s forwards;white-space:nowrap;}
+.hero-name em{font-style:italic;color:var(--accent);font-weight:400;}
+
+.hero-desc{font-size:0.92rem;color:var(--muted);max-width:440px;margin-bottom:2.5rem;line-height:1.8;opacity:0;animation:fadeUp 0.7s ease 0.6s forwards;}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp 0.7s ease 0.8s forwards;}
+.btn-primary{background:var(--accent);color:var(--bg);padding:0.8rem 2rem;border-radius:0.25rem;text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.06em;transition:background 0.2s,transform 0.15s,box-shadow 0.2s;}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,152,79,0.3);}
+.btn-ghost{border:0.5px solid var(--border2);color:var(--text);padding:0.8rem 2rem;border-radius:0.25rem;text-decoration:none;font-size:0.82rem;letter-spacing:0.04em;transition:border-color 0.2s,color 0.2s;}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+.hero-right{position:relative;z-index:1;opacity:0;animation:fadeUp 0.7s ease 1s forwards;}
+.hero-card{background:var(--card);border:0.5px solid var(--border);border-radius:0.75rem;padding:2rem;margin-bottom:1rem;transition:border-color 0.25s,transform 0.25s;}
+.hero-card:hover{border-color:var(--border2);transform:translateY(-2px);}
+.hero-card-label{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:0.8rem;}
+.hero-card-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;margin-bottom:0.3rem;}
+.hero-card-sub{font-size:0.78rem;color:var(--muted);}
+.hero-stats-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;}
+.hero-stat{background:var(--card);border:0.5px solid var(--border);border-radius:0.5rem;padding:1.2rem;text-align:center;transition:border-color 0.25s,transform 0.25s;}
+.hero-stat:hover{border-color:var(--border2);transform:translateY(-2px);}
+.hero-stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--accent);display:block;line-height:1;}
+.hero-stat-label{font-size:0.68rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:0.3rem;}
+
+/* SECTIONS */
+section{padding:6rem 5rem;}
+.section-eyebrow{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.8rem;display:flex;align-items:center;gap:0.8rem;}
+.section-eyebrow::after{content:'';flex:1;max-width:40px;height:0.5px;background:var(--accent);}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,3rem);font-weight:300;line-height:1.2;margin-bottom:3rem;}
+
+/* ABOUT */
+#about{background:var(--bg2);}
+.about-wrap{display:grid;grid-template-columns:3fr 2fr;gap:5rem;align-items:start;}
+.about-body p{color:var(--muted);font-size:0.92rem;margin-bottom:1.2rem;line-height:1.85;}
+.about-body p strong{color:var(--text);font-weight:400;}
+.about-socials{display:flex;gap:0.8rem;flex-wrap:wrap;margin-top:2rem;}
+.social-pill{display:flex;align-items:center;gap:0.5rem;padding:0.5rem 1.1rem;border:0.5px solid var(--border);border-radius:2rem;font-size:0.75rem;color:var(--muted);text-decoration:none;transition:border-color 0.2s,color 0.2s,transform 0.15s;}
+.social-pill:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+.about-meta{}
+.meta-row{display:flex;justify-content:space-between;padding:0.9rem 0;border-bottom:0.5px solid var(--border);font-size:0.82rem;}
+.meta-row:first-child{border-top:0.5px solid var(--border);}
+.meta-key{color:var(--muted);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;}
+.meta-val{color:var(--text);text-align:right;}
+.meta-val.green{color:var(--accent);}
+
+/* SKILLS */
+#skills{}
+.skills-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;}
+.skills-group-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;margin-bottom:1.5rem;color:var(--accent);}
+.skill-row{display:flex;justify-content:space-between;align-items:center;padding:0.8rem 0;border-bottom:0.5px solid var(--border);}
+.skill-row:last-child{border-bottom:none;}
+.skill-name{font-size:0.85rem;}
+.skill-track{width:120px;height:2px;background:rgba(255,255,255,0.06);border-radius:1px;overflow:hidden;}
+.skill-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:1px;width:0;transition:width 1.4s cubic-bezier(0.23,1,0.32,1);}
+.skill-fill.animate{width:100%!important;}
+
+/* EXPERIENCE */
+#experience{background:var(--bg2);}
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.exp-card{background:var(--card);border:0.5px solid var(--border);border-radius:0.6rem;padding:1.8rem;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;}
+.exp-card::before{content:'';position:absolute;top:0;left:0;width:2px;height:0;background:var(--accent);transition:height 0.3s ease;}
+.exp-card:hover::before{height:100%;}
+.exp-card:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 12px 32px rgba(201,152,79,0.08);}
+.exp-period{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;}
+.exp-role{font-family:'Cormorant Garamond',serif;font-size:1.1rem;margin-bottom:0.2rem;}
+.exp-org{font-size:0.78rem;color:var(--muted);margin-bottom:0.8rem;}
+.exp-desc{font-size:0.82rem;color:var(--muted);line-height:1.7;}
+.exp-tags{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:1rem;}
+.tag{font-size:0.65rem;padding:0.2rem 0.65rem;border:0.5px solid var(--border);border-radius:2rem;color:var(--muted);letter-spacing:0.04em;}
+
+/* DATA PROJECTS */
+#data-projects{background:var(--bg2);}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.proj-card img{width:100%;height:150px;object-fit:cover;border-radius:0.3rem;display:block;}
+.proj-card{background:var(--card);border:0.5px solid var(--border);border-radius:0.6rem;padding:1.8rem;display:flex;flex-direction:column;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;}
+.proj-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 16px 40px rgba(201,152,79,0.1);}
+.proj-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:rgba(201,152,79,0.12);line-height:1;margin-bottom:0.8rem;}
+.proj-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;margin-bottom:0.6rem;line-height:1.3;}
+.proj-desc{font-size:0.8rem;color:var(--muted);flex:1;margin-bottom:1rem;line-height:1.65;}
+.proj-stack{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:1rem;}
+.stack-tag{font-size:0.63rem;padding:0.18rem 0.55rem;background:rgba(201,152,79,0.08);border-radius:2rem;color:var(--accent);letter-spacing:0.04em;}
+.proj-link{font-size:0.72rem;color:var(--accent);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;display:inline-flex;align-items:center;gap:0.4rem;margin-top:auto;transition:color 0.2s;}
+.proj-link:hover{color:var(--accent2);}
+.proj-link::after{content:'→';}
+
+/* ENGINEERING PROJECTS */
+#eng-projects{}
+.eng-hero-card{background:var(--card);border:0.5px solid var(--border2);border-radius:0.8rem;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.eng-img{width:100%;height:100%;min-height:280px;object-fit:cover;display:block;}
+.eng-content{padding:2.5rem;}
+.eng-badge{display:inline-block;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);border:0.5px solid var(--accent);padding:0.25rem 0.7rem;border-radius:2rem;margin-bottom:1rem;}
+.eng-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;margin-bottom:0.8rem;line-height:1.2;}
+.eng-desc{font-size:0.84rem;color:var(--muted);margin-bottom:1.2rem;line-height:1.75;}
+.eng-stack{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.eng-result{font-size:0.8rem;color:var(--text);background:rgba(201,152,79,0.07);border:0.5px solid var(--border);border-radius:0.4rem;padding:0.8rem 1rem;line-height:1.6;}
+.eng-result strong{color:var(--accent);font-weight:400;}
+
+/* PUBLICATIONS */
+#publications{background:var(--bg2);}
+.pub-list{}
+.pub-item{display:flex;gap:2rem;padding:1.8rem 0;border-bottom:0.5px solid var(--border);align-items:flex-start;transition:background 0.2s;border-radius:0.3rem;}
+.pub-item:first-child{border-top:0.5px solid var(--border);}
+.pub-item:hover{background:rgba(201,152,79,0.03);}
+.pub-year{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:rgba(201,152,79,0.25);flex-shrink:0;width:70px;line-height:1;}
+.pub-body{}
+.pub-type{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.3rem;}
+.pub-title{font-size:0.92rem;font-weight:400;margin-bottom:0.3rem;line-height:1.4;}
+.pub-meta{font-size:0.78rem;color:var(--muted);}
+.pub-link{display:inline-block;margin-top:0.5rem;font-size:0.72rem;color:var(--accent);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;}
+.pub-link:hover{color:var(--accent2);}
+.pub-link::after{content:' →';}
+
+/* EDUCATION */
+#education{}
+.edu-card{background:var(--card);border:0.5px solid var(--border);border-radius:0.6rem;padding:2rem 2.5rem;display:flex;gap:2rem;align-items:flex-start;transition:border-color 0.2s,transform 0.2s;}
+.edu-card:hover{border-color:var(--border2);transform:translateY(-2px);}
+.edu-icon{width:52px;height:52px;flex-shrink:0;background:rgba(201,152,79,0.08);border:0.5px solid var(--border);border-radius:0.5rem;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--accent);}
+.edu-period{font-size:0.68rem;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.3rem;}
+.edu-degree{font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin-bottom:0.2rem;}
+.edu-school{font-size:0.82rem;color:var(--muted);margin-bottom:0.6rem;}
+.edu-note{font-size:0.82rem;color:var(--muted);}
+.edu-note strong{color:var(--accent);font-weight:400;}
+
+/* CERTIFICATIONS */
+#certifications{background:var(--bg2);}
+.cert-intro{font-size:0.88rem;color:var(--muted);margin-bottom:2.5rem;max-width:600px;}
+.certs-wrap{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;}
+.cert-group-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--accent);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:0.5px solid var(--border);}
+.cert-item{display:flex;align-items:flex-start;gap:0.8rem;padding:0.7rem 0;border-bottom:0.5px solid var(--border);}
+.cert-item:last-child{border-bottom:none;}
+.cert-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:0.55rem;}
+.cert-info{}
+.cert-name{font-size:0.83rem;margin-bottom:0.1rem;}
+.cert-issuer{font-size:0.7rem;color:var(--muted);}
+.cert-link{font-size:0.68rem;color:var(--accent);text-decoration:none;letter-spacing:0.04em;transition:color 0.2s;}
+.cert-link:hover{color:var(--accent2);}
+
+/* CONTACT */
+#contact{text-align:center;position:relative;overflow:hidden;}
+.contact-glow{position:absolute;inset:0;background:radial-gradient(ellipse 40% 50% at 50% 100%,rgba(201,152,79,0.07) 0%,transparent 70%);pointer-events:none;}
+.contact-inner{position:relative;z-index:1;}
+.contact-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,5rem);font-weight:300;line-height:1.1;margin-bottom:1.5rem;}
+.contact-title em{font-style:italic;color:var(--accent);}
+.contact-desc{color:var(--muted);max-width:420px;margin:0 auto 2.5rem;font-size:0.9rem;}
+.contact-email{display:inline-block;font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--accent);text-decoration:none;border-bottom:0.5px solid rgba(201,152,79,0.4);padding-bottom:3px;margin-bottom:3rem;transition:opacity 0.2s;}
+.contact-email:hover{opacity:0.7;}
+.contact-links{display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap;}
+.contact-link{padding:0.6rem 1.5rem;border:0.5px solid var(--border);border-radius:2rem;font-size:0.75rem;color:var(--muted);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:border-color 0.2s,color 0.2s,transform 0.15s;}
+.contact-link:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+
+footer{padding:2rem 5rem;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+footer p{font-size:0.75rem;color:var(--muted);}
+footer span{color:var(--accent);}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes shimmer{0%{background-position:-200% center;}100%{background-position:200% center;}}
+.fade-in{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+
+/* Floating particles */
+.particle{position:fixed;pointer-events:none;border-radius:50%;background:var(--accent);opacity:0;animation:floatParticle linear infinite;}
+@keyframes floatParticle{0%{opacity:0;transform:translateY(0) scale(0);}10%{opacity:0.4;}90%{opacity:0.1;}100%{opacity:0;transform:translateY(-100vh) scale(1);}}
+
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  .hero{grid-template-columns:1fr;padding:7rem 1.5rem 3rem;}
+  .hero-name{font-size:clamp(2.5rem,12vw,4rem);white-space:normal;}
+  .hero-right{display:none;}
+  section{padding:4rem 1.5rem;}
+  .about-wrap,.skills-wrap,.exp-grid,.certs-wrap{grid-template-columns:1fr;}
+  .projects-grid{grid-template-columns:repeat(2,1fr);}
+  .eng-hero-card{grid-template-columns:1fr;}
+  .eng-img{max-height:260px;}
+  footer{flex-direction:column;gap:0.5rem;padding:1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- Floating particles -->
+<div id="particles"></div>
+
+<nav>
+  <div class="nav-container">
+    
+    <!-- Logo -->
+    <div class="nav-logo">
+      AK.
+    </div>
+
+    <!-- Desktop Links -->
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#data-projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <!-- CTA Button -->
+    <a href="mailto:adedijiayubkolade@gmail.com" class="nav-cta">Hire Me</a>
+
+    <!-- Hamburger (Mobile Only) -->
+    <button id="hamburger" class="hamburger">
+      ☰
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown -->
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="mobile-menu-content">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#data-projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+      <a href="mailto:adedijiayubkolade@gmail.com" class="mobile-cta">Hire Me</a>
+    </div>
+  </div>
+</nav>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+    
+    // Change icon to close
+    if (mobileMenu.classList.contains('active')) {
+      hamburger.textContent = '✕';
+    } else {
+      hamburger.textContent = '☰';
+    }
+  });
+</script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+    }
+
+    /* ── Hero Section ── */
+    .hero {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 3rem;
+      padding: 5rem 4rem;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Grid lines background */
+    .hero-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(90deg, rgba(0,0,0,0.05) 0, rgba(0,0,0,0.05) 1px, transparent 1px, transparent 60px),
+        repeating-linear-gradient(0deg,  rgba(0,0,0,0.05) 0, rgba(0,0,0,0.05) 1px, transparent 1px, transparent 60px);
+      pointer-events: none;
+    }
+
+    /* Decorative circle */
+    .hero-dot {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      top: -80px;
+      right: -80px;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    /* ── Left Column ── */
+    .hero-left {
+      position: relative;
+      flex: 1 1 0;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      padding: 4px 12px;
+      width: fit-content;
+    }
+
+    .hero-name {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    .hero-name em {
+      font-style: normal;
+    }
+
+    .hero-desc {
+      font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .btn-primary:hover { opacity: 0.8; }
+
+    .btn-ghost {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid #ccc;
+      transition: background 0.15s;
+    }
+
+    /* ── Right Column ── */
+    .hero-right {
+      position: relative;
+      flex: 0 0 min(360px, 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .hero-card {
+      border: 1px;
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hero-card-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .hero-card-title {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .hero-card-sub {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    /* Stats row */
+    .hero-stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .hero-stat {
+      border: 1px;
+      border-radius: 8px;
+      padding: 0.9rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .hero-stat-num {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 12px;
+    }
+
+    /* ── Responsive: Tablet ── */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 3.5rem 2rem;
+        gap: 2.5rem;
+        min-height: unset;
+      }
+
+      .hero-right {
+        flex: 1 1 auto;
+      }
+
+      .hero-desc {
+        max-width: 100%;
+      }
+    }
+
+    /* ── Responsive: Mobile ── */
+    @media (max-width: 540px) {
+      .hero {
+        padding: 2.5rem 1.25rem;
+        gap: 2rem;
+      }
+
+      .hero-dot {
+        width: 200px;
+        height: 200px;
+        top: -50px;
+        right: -50px;
+      }
+
+      .hero-name {
+        font-size: 2rem;
+        color: white;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+      }
+
+      .btn-primary,
+      .btn-ghost {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero" id="home">
+    <div class="hero-lines"></div>
+    <div class="hero-dot"></div>
+
+    <!-- Left: intro content -->
+    <div class="hero-left">
+      <div class="hero-tag">Engineer · Analyst · Builder</div>
+      <h1 class="hero-name">Ayub <em>Kolade</em> Adediji</h1>
+      <p class="hero-desc">
+        Electrical &amp; Electronics Engineer and Data Analyst turning complex systems
+        and raw data into decisions that matter — across energy, AI, and infrastructure in Nigeria.
+      </p>
+      <div class="hero-ctas">
+        <a href="#data-projects" class="btn-primary">View Projects</a>
+        <a href="#contact" class="btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+
+    <!-- Right: cards + stats -->
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-card-label">Current Role</div>
+        <div class="hero-card-title">Energy Engineer — Cornerstone Solar</div>
+        <div class="hero-card-sub">Abeokuta, Ogun State, Nigeria · 2026–Present</div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-label">Long-term Vision</div>
+        <div class="hero-card-title">IntelliPower Nigeria</div>
+        <div class="hero-card-sub">AI-integrated solar mini-grids for underserved African communities</div>
+      </div>
+
+      <div class="hero-stats-row">
+        <div class="hero-stat">
+          <span class="hero-stat-num">7</span>
+          <div class="hero-stat-label">Projects</div>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">5</span>
+          <div class="hero-stat-label">Publications</div>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">2:1</span>
+          <div class="hero-stat-label">Honours</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="fade-in">
+    <div class="section-eyebrow">Who I Am</div>
+    <h2 class="section-title">Engineer at heart.<br>Analyst by practice.</h2>
+  </div>
+  <div class="about-wrap fade-in">
+    <div class="about-body">
+      <p>I am a <strong>B.Eng. Electrical & Electronics Engineering</strong> graduate from the University of Ilorin, Nigeria — Second Class Upper Honours, finishing in the top 8% of my class. My work sits at the intersection of power systems and data intelligence.</p>
+      <p>From analysing electrical load data on construction sites at IEPM Lagos, to building predictive machine learning models during virtual internships at BCG and KPMG, to commissioning solar installations across Ogun State — every experience has sharpened one skill: making <strong>complex systems legible and actionable</strong>.</p>
+      <p>My long-term goal is <strong>IntelliPower Nigeria</strong>, a social enterprise deploying AI-integrated solar mini-grids to underserved communities across Africa. Everything I am learning right now is in service of that vision.</p>
+      <div class="about-socials">
+        <a href="https://github.com/Koladeadediji" class="social-pill" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/koladeadediji" class="social-pill" target="_blank">LinkedIn</a>
+        <a href="https://kaggle.com/koladeadediji" class="social-pill" target="_blank">Kaggle</a>
+        <a href="mailto:adedijiayubkolade@gmail.com" class="social-pill">Email</a>
+      </div>
+    </div>
+    <div class="about-meta">
+      <div class="meta-row"><span class="meta-key">Location</span><span class="meta-val">Abeokuta, Ogun State, Nigeria</span></div>
+      <div class="meta-row"><span class="meta-key">Degree</span><span class="meta-val">B.Eng. Electrical & Electronics</span></div>
+      <div class="meta-row"><span class="meta-key">University</span><span class="meta-val">University of Ilorin</span></div>
+      <div class="meta-row"><span class="meta-key">Grade</span><span class="meta-val">Second Class Upper (4.04/5.0)</span></div>
+      <div class="meta-row"><span class="meta-key">Languages</span><span class="meta-val">English, Yoruba</span></div>
+      <div class="meta-row"><span class="meta-key">Status</span><span class="meta-val green">Open to Opportunities</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="fade-in">
+    <div class="section-eyebrow">Capabilities</div>
+    <h2 class="section-title">Skills & Tools</h2>
+  </div>
+  <div class="skills-wrap fade-in">
+    <div>
+      <div class="skills-group-title">Data & Analytics</div>
+      <div class="skill-row"><span class="skill-name">Python (Pandas, NumPy, Sklearn)</span><div class="skill-track"><div class="skill-fill" data-w="1"></div></div></div>
+      <div class="skill-row"><span class="skill-name">Power BI</span><div class="skill-track"><div class="skill-fill" data-w="1"></div></div></div>
+      <div class="skill-row"><span class="skill-name">SQL & BigQuery</span><div class="skill-track"><div class="skill-fill" data-w="1"></div></div></div>
+      <div class="skill-row"><span class="skill-name">Microsoft Excel</span><div class="skill-track"><div class="skill-fill" data-w="1"></div></div></div>
+      <div class="skill-row"><span class="skill-name">Machine Learning</span><div class="skill-track"><div class="skill-fill" data-w="1"></div></div></div>
+      <div class="skill-row"><span class="skill-name">Data Visualisation</span><div class="skill-track"><div class="skill-fill" data-w="1"></div></div></div>
+      <div class="skill-row"><span class="skill-name">Jupyter Notebooks</span><div class="skill-track"><div class="skill-fill" data-w="1"></div></div></div>
+    </div>
+    <div>
+      <div class="skills-group-title">Engineering</div>
+      <div class="skill-row"><span class="skill-name">Power Systems Analysis</span><div class="skill-track"><div class="skill-fill" data-w="1"></div></div></div>
+      <div class="skill-row"><span class="skill-name">Solar System Design</span><div class="skill-track"><div class="skill-fill" data-w="1"></div></div></div>
+      <div class="skill-row"><span class="skill-name">IoT (ESP8266/ESP32)</span><div class="skill-track"><div class="skill-fill" data-w="1"></div></div></div>
+      <div class="skill-row"><span class="skill-name">MATLAB</span><div class="skill-track"><div class="skill-fill" data-w="1"></div></div></div>
+      <div class="skill-row"><span class="skill-name">Arduino IDE</span><div class="skill-track"><div class="skill-fill" data-w="1"></div></div></div>
+      <div class="skill-row"><span class="skill-name">Proteus (Circuit Simulation)</span><div class="skill-track"><div class="skill-fill" data-w="1"></div></div></div>
+      <div class="skill-row"><span class="skill-name">Load Scheduling & MEP</span><div class="skill-track"><div class="skill-fill" data-w="1"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="fade-in">
+    <div class="section-eyebrow">Work History</div>
+    <h2 class="section-title">Experience</h2>
+  </div>
+  <div class="exp-grid fade-in">
+    <div class="exp-card">
+      <div class="exp-period">2026 — Present</div>
+      <div class="exp-role">Energy Engineer</div>
+      <div class="exp-org">Cornerstone Solar · Abeokuta, Ogun State, Nigeria</div>
+      <div class="exp-desc">Field commissioning of solar installations, client load consultations, and SDG 7 energy access facilitation across communities in Ogun State.</div>
+      <div class="exp-tags"><span class="tag">Solar Systems</span><span class="tag">Field Engineering</span><span class="tag">SDG 7</span></div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-period">May 2024 — Oct 2024</div>
+      <div class="exp-role">Power Systems Analyst</div>
+      <div class="exp-org">Integral Engineers & Project Managers (IEPM) · Lagos</div>
+      <div class="exp-desc">Analysed MEP system performance data, prepared Bills of Quantity in Excel, developed detailed load schedules and tracked issue resolution across building projects.</div>
+      <div class="exp-tags"><span class="tag">Excel</span><span class="tag">MEP Systems</span><span class="tag">Load Scheduling</span><span class="tag">Reporting</span></div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-period">Apr 2025 — Jun 2025</div>
+      <div class="exp-role">Business Analyst (Virtual)</div>
+      <div class="exp-org">Boston Consulting Group (BCG) · Forage</div>
+      <div class="exp-desc">Built a Random Forest classifier achieving 90% accuracy in predicting customer churn. Delivered executive-level findings via PowerPoint — insights projected to reduce churn by 33%.</div>
+      <div class="exp-tags"><span class="tag">Python</span><span class="tag">Random Forest</span><span class="tag">Churn Modelling</span><span class="tag">EDA</span></div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-period">Oct 2023 — Dec 2023</div>
+      <div class="exp-role">Data Analyst (Virtual)</div>
+      <div class="exp-org">MeriSkill · Remote</div>
+      <div class="exp-desc">Analysed sales datasets, built Power BI dashboards, identified top-performing products and underperforming regions — contributing to a projected 20% increase in sales.</div>
+      <div class="exp-tags"><span class="tag">Power BI</span><span class="tag">Python</span><span class="tag">Sales Analytics</span></div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-period">Jun 2023 — Aug 2023</div>
+      <div class="exp-role">Data Analyst (Virtual)</div>
+      <div class="exp-org">KPMG · Forage</div>
+      <div class="exp-desc">Cleaned and processed a renewable energy dataset, performed exploratory data analysis, and built an interactive dashboard enabling stakeholders to explore energy trends.</div>
+      <div class="exp-tags"><span class="tag">EDA</span><span class="tag">Power BI</span><span class="tag">Excel</span><span class="tag">Renewable Energy</span></div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-period">Aug 2023 — Dec 2023</div>
+      <div class="exp-role">Junior Power Systems Analyst</div>
+      <div class="exp-org">Ibadan Electricity Distribution Company (IBEDC)</div>
+      <div class="exp-desc">Collected and analysed electrical performance data from residential and industrial buildings, improving fitting efficiency by 10%. Built Excel and Python dashboards for maintenance planning.</div>
+      <div class="exp-tags"><span class="tag">Python</span><span class="tag">Excel</span><span class="tag">Power Systems</span><span class="tag">Dashboards</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DATA PROJECTS -->
+<section id="data-projects">
+  <div class="fade-in">
+    <div class="section-eyebrow">Data Science & Analytics</div>
+    <h2 class="section-title">Data Projects</h2>
+  </div>
+  <div class="projects-grid fade-in">
+    <div class="proj-card">
+      <div class="proj-num">01</div>
+      <img class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="Automotive dustbin" src="Solar Prediction Model.jpg.jpeg" alt="Solar Img"
+      /><br>
+      <div class="proj-title">Solar Power Output Forecast</div>
+      <div class="proj-desc">Demonstrates how AI can enable predictive control of solar assets, ensuring grid stability and helping energy planners adapt to variable renewable sources.</div>
+      <div class="proj-stack"><span class="stack-tag">Python</span><span class="stack-tag">XGBoost</span><span class="stack-tag">Random Forest</span><span class="stack-tag">Pandas</span><span class="stack-tag">Matplotlib</span></div>
+      <a href="https://github.com/Koladeadediji/Solar-Power-Output-Forecast" class="proj-link" target="_blank">View on GitHub</a>
+    </div>
+    <div class="proj-card">
+      <div class="proj-num">02</div>
+      <img class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="Automotive dustbin" src="spotify prediction.png" alt="Spotify Img"
+      /><br>
+      <div class="proj-title">Spotify Song Popularity Prediction</div>
+      <div class="proj-desc">Built an ML model to predict song popularity using Spotify audio features. Engineered custom features like mood score and dance potential. Achieved up to 88% accuracy with Random Forest.</div>
+      <div class="proj-stack"><span class="stack-tag">Python</span><span class="stack-tag">XGBoost</span><span class="stack-tag">Scikit-learn</span><span class="stack-tag">Seaborn</span></div>
+      <a href="https://www.datascienceportfol.io/KoladeAdediji/projects/5" class="proj-link" target="_blank">View Project</a>
+    </div>
+    <div class="proj-card">
+      <div class="proj-num">03</div>
+      <img class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="Automotive dustbin" src="credit card.png" alt="Credit Card Img"
+      /><br>
+      <div class="proj-title">Credit Card Fraud Detection</div>
+      <div class="proj-desc">Analysed a credit card fraud dataset and developed ML and deep learning models to classify fraudulent transactions, comparing multiple algorithms for best performance.</div>
+      <div class="proj-stack"><span class="stack-tag">Python</span><span class="stack-tag">TensorFlow</span><span class="stack-tag">Deep Learning</span><span class="stack-tag">Classification</span></div>
+      <a href="https://www.datascienceportfol.io/KoladeAdediji/projects/4" class="proj-link" target="_blank">View Project</a>
+    </div>
+    <div class="proj-card">
+      <div class="proj-num">04</div>
+      <img class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="Automotive dustbin" src="Customer Purchase Analysis.jpg" alt="Customer Purchase Analysis Img"
+      /> <br>
+      <div class="proj-title">Customer Purchase Analysis</div>
+      <div class="proj-desc">Analysed consumer purchase behaviour across key parameters to extract insights and support data-driven decision-making about purchasing patterns.</div>
+      <div class="proj-stack"><span class="stack-tag">Python</span><span class="stack-tag">Machine Learning</span><span class="stack-tag">Data Visualisation</span></div>
+      <a href="https://www.datascienceportfol.io/KoladeAdediji/projects/1" class="proj-link" target="_blank">View Project</a>
+    </div>
+    <div class="proj-card">
+      <div class="proj-num">05</div>
+      <img class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="Automotive dustbin" src="healthcare dashboard.jpg" alt="Healthcare Dashboard Img"
+      /> <br>
+      <div class="proj-title">Healthcare Dashboard</div>
+      <div class="proj-desc">Prepared a Power BI dashboard surfacing insights from a healthcare dataset including blood type, doctor, and hospital metrics to support clinical decision-making.</div>
+      <div class="proj-stack"><span class="stack-tag">Power BI</span><span class="stack-tag">Excel</span><span class="stack-tag">Dashboard Design</span></div>
+      <a href="https://www.datascienceportfol.io/KoladeAdediji/projects/3" class="proj-link" target="_blank">View Project</a>
+    </div>
+    <div class="proj-card">
+      <div class="proj-num">06</div>
+      <img class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="Automotive dustbin" src="india unemployment.png" alt="Unemployment Img"
+      />  <br>
+      <div class="proj-title">Unemployment Rate in India</div>
+      <div class="proj-desc">Analysed unemployment trends across Indian cities from 2019–2020, covering regions like Andhra Pradesh, Delhi, and Sikkim using SQL and Python visualisations.</div>
+      <div class="proj-stack"><span class="stack-tag">SQL</span><span class="stack-tag">Python</span><span class="stack-tag">Jupyter</span><span class="stack-tag">Data Visualisation</span></div>
+      <a href="https://www.datascienceportfol.io/KoladeAdediji/projects/0" class="proj-link" target="_blank">View Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- ENGINEERING PROJECTS -->
+<section id="eng-projects">
+  <div class="fade-in">
+    <div class="section-eyebrow">Hardware & IoT</div>
+    <h2 class="section-title">Engineering Project</h2>
+  </div>
+  <div class="eng-hero-card fade-in">
+    <img src="iot image.png" alt="IoT Smart Circuit Breaker prototype with ESP8266, relay module and test bulbs" class="eng-img">
+    <div class="eng-content">
+      <span class="eng-badge">Thesis Project · 2025</span>
+      <div class="eng-title">IoT-Based Smart Circuit Breaker</div>
+      <div class="eng-desc">Designed and built an intelligent circuit breaker that monitors real-time electrical current, automatically detects overload and underload conditions, trips a relay to protect connected devices, and streams live data to a web dashboard over Wi-Fi — all using an ESP8266 microcontroller and a current transformer sensor.</div>
+      <div class="eng-stack">
+        <span class="stack-tag">ESP8266</span>
+        <span class="stack-tag">Current Transformer</span>
+        <span class="stack-tag">Relay Module</span>
+        <span class="stack-tag">Arduino IDE</span>
+        <span class="stack-tag">Proteus</span>
+        <span class="stack-tag">IoT Web Dashboard</span>
+        <span class="stack-tag">AC & Solar Power</span>
+      </div>
+      <div class="eng-result">
+        <strong>Result:</strong> Tested across 3 sessions at University of Ilorin using both AC and solar power. System accurately detected underload, normal, and overload conditions in real-time and successfully streamed all data to a web application — validating full IoT functionality.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="fade-in">
+    <div class="section-eyebrow">Research</div>
+    <h2 class="section-title">Publications</h2>
+  </div>
+  <div class="pub-list fade-in">
+    <div class="pub-item">
+      <div class="pub-year">2025</div>
+      <div class="pub-body">
+        <div class="pub-type">Preprint · engrXiv · IoT & Power Systems</div>
+        <div class="pub-title">Renewable Energy Pathways in Africa: Opportunities and Challenges for Sustainable Development</div>
+        <div class="pub-meta">Ayub Kolade Adediji et al. · engrXiv · DOI: 10.31224/5746</div>
+        <a href="https://doi.org/10.31224/5746" class="pub-link" target="_blank">View Paper</a>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-year">2025</div>
+      <div class="pub-body">
+        <div class="pub-type">Thesis & Preprint · engrXiv · IoT & Power Systems</div>
+        <div class="pub-title">Development of an IoT-Based Smart Circuit Breaker for Real-Time Monitoring and Automatic Fault Protection</div>
+        <div class="pub-meta">Ayub Kolade Adediji · University of Ilorin · engrXiv · DOI: 10.31224/5747</div>
+        <a href="https://doi.org/10.31224/5747" class="pub-link" target="_blank">View Paper</a>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-year">2025</div>
+      <div class="pub-body">
+        <div class="pub-type">Preprint · engrXiv · Data Science & AI</div>
+        <div class="pub-title">The Evolving Role of Data Science, Artificial Intelligence, and Machine Learning in Decision-Making across Industries</div>
+        <div class="pub-meta">Ayub Kolade Adediji et al. · engrXiv · DOI: 10.31224/5748</div>
+        <a href="https://doi.org/10.31224/5748" class="pub-link" target="_blank">View Paper</a>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-year">2024</div>
+      <div class="pub-body">
+        <div class="pub-type">Co-authored Preprint · engrXiv · Materials Science</div>
+        <div class="pub-title">An Overview of Mechanical and Chemical Recycling Methods for Polyethylene Terephthalate Plastics</div>
+        <div class="pub-meta">Co-authored Research · engrXiv · DOI: 10.31224/3538</div>
+        <a href="https://doi.org/10.31224/3538" class="pub-link" target="_blank">View Paper</a>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-year">2024</div>
+      <div class="pub-body">
+        <div class="pub-type">Co-authored Preprint · engrXiv · Biomedical Engineering</div>
+        <div class="pub-title">Biodegradable Mg-Based Alloys for Orthopaedic Implants in Biomedical Applications</div>
+        <div class="pub-meta">Co-authored Research · engrXiv · DOI: 10.31224/3537</div>
+        <a href="https://doi.org/10.31224/3537" class="pub-link" target="_blank">View Paper</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="fade-in">
+    <div class="section-eyebrow">Academic Background</div>
+    <h2 class="section-title">Education</h2>
+  </div>
+  <div class="edu-card fade-in">
+    <div class="edu-icon">⚡</div>
+    <div>
+      <div class="edu-period">2019 — 2025</div>
+      <div class="edu-degree">B.Eng. Electrical & Electronics Engineering</div>
+      <div class="edu-school">University of Ilorin, Kwara State, Nigeria</div>
+      <div class="edu-note">Final Grade: <strong>Second Class Upper (4.04/5.0)</strong> — Top 8% of graduating class. Thesis: Development of an IoT-Based Smart Circuit Breaker (tested on AC and solar power, full web dashboard integration).</div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="fade-in">
+    <div class="section-eyebrow">Credentials</div>
+    <h2 class="section-title">Certifications & Courses</h2>
+    <p class="cert-intro">A selection of verified certifications across data science, AI, renewable energy, and engineering from Coursera, edX, FreeCodeCamp, FutureLearn, and more.</p>
+  </div>
+  <div class="certs-wrap fade-in">
+    <!-- Top-left: AI and Machine Learning -->
+    <div>
+      <div class="cert-group-title">AI & Machine Learning</div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">Getting Started with AI using IBM Watson</div><div class="cert-issuer">Coursera</div><a href="https://coursera.org/share/4ad086b3709748961b71ddbefa077815" class="cert-link" target="_blank">View Certificate</a></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">Machine Learning for All</div><div class="cert-issuer">Coursera</div><a href="https://coursera.org/share/042415a21823f255cc5542b60b50aaf7" class="cert-link" target="_blank">View Certificate</a></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">AI for Everyone</div><div class="cert-issuer">Coursera</div><a href="https://coursera.org/share/41b192a4d38f4da62a2bbd93b8e9ba1c" class="cert-link" target="_blank">View Certificate</a></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">AI for Everyone: Master the Basics</div><div class="cert-issuer">edX</div><a href="https://courses.edx.org/certificates/c961fa8ac2774095895fd32c05acfe19" class="cert-link" target="_blank">View Certificate</a></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">Introduction to Generative AI</div><div class="cert-issuer">edX</div><a href="https://courses.edx.org/certificates/42039563268a45c0aa7695a5c9051739" class="cert-link" target="_blank">View Certificate</a></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">Introduction to Prompt Engineering</div><div class="cert-issuer">edX</div><a href="https://courses.edx.org/certificates/051c378ad9bd4d11a584451d42f280c3" class="cert-link" target="_blank">View Certificate</a></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">Digital Skills: Artificial Intelligence</div><div class="cert-issuer">FutureLearn</div><a href="https://www.futurelearn.com/certificates/iw0aagv" class="cert-link" target="_blank">View Certificate</a></div></div>
+    </div>
+    <!-- Top-right: Data Analytics -->
+    <div>
+      <div class="cert-group-title">Data Analytics</div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">Introduction to Data Analysis using Microsoft Excel</div><div class="cert-issuer">Coursera</div><a href="https://coursera.org/share/5eb35e1bce8feeed87d71717e7ae52c1" class="cert-link" target="_blank">View Certificate</a></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">Working with BigQuery</div><div class="cert-issuer">Coursera</div><a href="https://coursera.org/share/2a19c30e2ed06b6c8b27561e1cbc45db" class="cert-link" target="_blank">View Certificate</a></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">Ask Questions to Make Data-Driven Decisions</div><div class="cert-issuer">Coursera</div><a href="https://coursera.org/share/0c664ce6aafbd67dead3701e62ea7bd1" class="cert-link" target="_blank">View Certificate</a></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">Foundations: Data, Data, Everywhere</div><div class="cert-issuer">Coursera</div><a href="https://coursera.org/share/685e1bc0e0cbc2342620abef5429c168" class="cert-link" target="_blank">View Certificate</a></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">Data Analysis with Python</div><div class="cert-issuer">FreeCodeCamp</div><a href="https://www.freecodecamp.org/certification/Adedijikolade/data-analysis-with-python-v7" class="cert-link" target="_blank">View Certificate</a></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">Scientific Computing with Python</div><div class="cert-issuer">FreeCodeCamp</div><a href="https://www.freecodecamp.org/certification/Adedijikolade/scientific-computing-with-python-v7" class="cert-link" target="_blank">View Certificate</a></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">JavaScript Algorithms & Data Structures</div><div class="cert-issuer">FreeCodeCamp</div><a href="https://www.freecodecamp.org/certification/Adedijikolade/javascript-algorithms-and-data-structures" class="cert-link" target="_blank">View Certificate</a></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">Digital Skills: Web Analytics</div><div class="cert-issuer">FutureLearn</div><a href="https://www.futurelearn.com/certificates/ihlxcfo" class="cert-link" target="_blank">View Certificate</a></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">KPMG Data Analytics Consulting Virtual Internship</div><div class="cert-issuer">Forage</div><a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/KPMG%20AU/m7W4GMqeT3bh9Nb2c_KPMG%20AU_vegkGjKnuCeoSSydY_1686658026963_completion_certificate.pdf" class="cert-link" target="_blank">View Certificate</a></div></div>
+    </div>
+    <!-- Bottom-left: Leadership -->
+    <div>
+      <div class="cert-group-title">Leadership</div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">Exercising Leadership: Foundational Principles</div><div class="cert-issuer">edX</div><a href="https://courses.edx.org/certificates/088eba78a1704b49b9f71af3db7c23a2" class="cert-link" target="_blank">View Certificate</a></div></div>
+    </div>
+    <!-- Bottom-right: Engineering & Sustainability -->
+    <div>
+      <div class="cert-group-title">Engineering & Sustainability</div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">Solar Energy 1, 2 &amp; 3</div><div class="cert-issuer">edX · TU Delft</div><a href="https://www.edx.org/learn/solar-energy/delft-university-of-technology-solar-energy" class="cert-link" target="_blank">View Course Series</a></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">Designing a Climate Neutral World: An Introduction</div><div class="cert-issuer">edX</div><a href="https://courses.edx.org/certificates/6478053642484be0986bd61f3930a23a" class="cert-link" target="_blank">View Certificate</a></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">Designing for a Sustainable Future</div><div class="cert-issuer">FutureLearn</div><a href="https://www.futurelearn.com/certificates/q2ka1wz" class="cert-link" target="_blank">View Certificate</a></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">Understanding Renewable Energy</div><div class="cert-issuer">YALI Network</div></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-info"><div class="cert-name">Understanding Climate Change</div><div class="cert-issuer">YALI Network</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-glow"></div>
+  <div class="contact-inner fade-in">
+    <div class="section-eyebrow" style="justify-content:center;">Let's Connect</div>
+    <div class="contact-title">Open to roles &<br><em>collaborations</em></div>
+    <p class="contact-desc">Whether it's a data role, a graduate programme, research collaboration, or a conversation about energy access in Africa — my inbox is open.</p>
+    <a href="mailto:adedijiayubkolade@gmail.com" class="contact-email">adedijiayubkolade@gmail.com</a>
+    <div class="contact-links">
+      <a href="https://github.com/Koladeadediji" class="contact-link" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/koladeadediji" class="contact-link" target="_blank">LinkedIn</a>
+      <a href="https://kaggle.com/koladeadediji" class="contact-link" target="_blank">Kaggle</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <span>Ayub Kolade Adediji</span></p>
+  <p>Built with purpose. <span>Powered by data.</span></p>
+</footer>
+
+<script>
+/* Intersection observer for fade-in and skill bars */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      e.target.querySelectorAll('.skill-fill').forEach(bar => {
+        bar.classList.add('animate');
+      });
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+/* Floating particles */
+const container = document.getElementById('particles');
+function spawnParticle() {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  const size = Math.random() * 3 + 1;
+  const left = Math.random() * 100;
+  const duration = Math.random() * 12 + 8;
+  const delay = Math.random() * 4;
+  p.style.cssText = `width:${size}px;height:${size}px;left:${left}vw;bottom:-10px;animation-duration:${duration}s;animation-delay:${delay}s;`;
+  container.appendChild(p);
+  setTimeout(() => p.remove(), (duration + delay) * 1000);
+}
+setInterval(spawnParticle, 900);
+
+/* Subtle nav highlight on scroll */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+  });
+}, { passive: true });
+</script>
+</body>
+</html>
+
+
+<!-- 
+        <section class="py-24 px-6 md:px-20 max-w-7xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold mb-12">
+            Frontend Projects
+          </h2>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div
+              class="group bg-slate-50 dark:bg-slate-800/30 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800"
+            >
+              <div class="aspect-video overflow-hidden">
+                <img
+                  class="w-full h-full object-cover transition-transform group-hover:scale-105"
+                  data-alt="Circuit board with complex wiring and components"
+                  src="project 1.png"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-primary font-bold text-lg mb-2">
+                  AECT Interace
+                </h3>
+                <p class="text-sm text-slate-600 dark:text-slate-400">
+                  The Automotive Electric Circuit Trainer (AECT) is an interactive simulation platform designed to teach automotive electrical systems.
+                </p> <br> <br> <br>
+                <a href="https://aect-interface.netlify.app/">
+                  <button>
+                    <span class="px-2 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded uppercase">View Project</span>
+                  </button>
+                </a>
+              </div>
+            </div>
+            <div
+              class="group bg-slate-50 dark:bg-slate-800/30 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800"
+            >
+              <div class="aspect-video overflow-hidden">
+                <img
+                  class="w-full h-full object-cover transition-transform group-hover:scale-105"
+                  data-alt="Close up of a color sorting machine mechanism"
+                  src="GuichetGPT Project.png"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-primary font-bold text-lg mb-2">
+                  GuichetGPT
+                </h3>
+                <p class="text-sm text-slate-600 dark:text-slate-400">
+                  An AI powered government website designed to assist applicants throughout the visa application process, providing intelligent guidance, automated responses, and real time support to improve accuracy and efficiency.
+                </p> <br>
+                <a href="#">
+                  <button>
+                    <span class="px-2 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded uppercase">View Project</span>
+                  </button>
+                </a>
+              </div>
+            </div>
+            <div
+              class="group bg-slate-50 dark:bg-slate-800/30 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800"
+            >
+              <div class="aspect-video overflow-hidden">
+                <img
+                  class="w-full h-full object-cover transition-transform group-hover:scale-105"
+                  data-alt="Solar panel installation with monitoring equipment"
+                  src="Smartteller.png"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-primary font-bold text-lg mb-2">
+                  SmartTeller website
+                </h3>
+                <p class="text-sm text-slate-600 dark:text-slate-400">
+                  The official website for SmartTeller tech hub. Visit "smartteller.tech" to check out the design. Designed the UI and UX of the website using Bootstrap css and PHP.
+                </p> <br> <br>
+                <a href="https://smartteller.tech/">
+                  <button>
+                    <span class="px-2 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded uppercase">View Project</span>
+                  </button>
+                </a>
+              </div>
+            </div>
+
+            <div
+              class="group bg-slate-50 dark:bg-slate-800/30 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800"
+            >
+              <div class="aspect-video overflow-hidden">
+                <img
+                  class="w-full h-full object-cover transition-transform group-hover:scale-105"
+                  data-alt="Automotive dustbin"
+                  src="Portfolio website.png"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-primary font-bold text-lg mb-2">
+                Portfolio Website
+                </h3>
+                <p class="text-sm text-slate-600 dark:text-slate-400">
+                  A responsive portfolio site for myself, built with HTML, CSS, and JavaScript animations, showing details of projects, experiences, and how to contact me
+                </p> <br> <br>
+                <a href="https://demijayc.netlify.app/">
+                  <button>
+                    <span class="px-2 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded uppercase">View Project</span>
+                  </button>
+                </a>
+              </div>
+            </div>
+            <div
+              class="group bg-slate-50 dark:bg-slate-800/30 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800"
+            >
+              <div class="aspect-video overflow-hidden">
+                <img
+                  class="w-full h-full object-cover transition-transform group-hover:scale-105"
+                  data-alt="Automotive dustbin"
+                  src="solaritemall.png"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-primary font-bold text-lg mb-2">
+                Solarite Mall Website
+                </h3>
+                <p class="text-sm text-slate-600 dark:text-slate-400">
+                  The Official sales website for E-cornerstone Online Resources. A website where customers can place orders on any product avaible in the cornerstone store, pay for the order and get it delivered any where in the country.
+                </p> <br>
+                <a href="https://solaritemall.com/index.php">
+                  <button>
+                    <span class="px-2 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded uppercase">View Project</span>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section> -->
